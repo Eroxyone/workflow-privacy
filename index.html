@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkFlow – Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for WorkFlow, a local-first automatic time-tracking app with workplace geofencing.">
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    :root {
+      --brand: #1976D2;
+      --brand-dark: #0D47A1;
+      --text: #1A1A1A;
+      --muted: #555;
+      --bg: #FAFBFC;
+      --card: #FFFFFF;
+      --border: #E1E4E8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+    header {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+      color: #fff;
+      padding: 56px 24px 72px;
+      text-align: center;
+    }
+    header img { width: 72px; height: 72px; border-radius: 18px; margin-bottom: 16px; }
+    header h1 { margin: 0 0 8px; font-size: 32px; font-weight: 800; }
+    header p { margin: 0; opacity: 0.9; font-size: 16px; }
+    main {
+      max-width: 760px;
+      margin: -32px auto 64px;
+      padding: 40px 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+    h2 {
+      color: var(--brand-dark);
+      font-size: 22px;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--brand);
+      padding-bottom: 6px;
+    }
+    h2:first-of-type { margin-top: 0; }
+    p, li { font-size: 16px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    a { color: var(--brand); }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .contact-box {
+      background: #E3F2FD;
+      border-left: 4px solid var(--brand);
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer a { color: var(--brand); }
+    @media (max-width: 600px) {
+      header { padding: 40px 16px 56px; }
+      header h1 { font-size: 24px; }
+      main { margin: -24px 16px 32px; padding: 24px 20px; }
+      h2 { font-size: 19px; }
+      body { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="icon.png" alt="WorkFlow icon" onerror="this.style.display='none'">
+  <h1>WorkFlow</h1>
+  <p>Privacy Policy</p>
+</header>
+
+<main>
+  <p class="meta"><strong>Last updated:</strong> 25 May 2026</p>
+
+  <p>WorkFlow ("the app") is a local-first time tracking app with workplace geofencing for Android. This Privacy Policy explains what data the app handles, how it is used, your rights, and how to contact us.</p>
+
+  <h2>1. Who we are</h2>
+  <p>WorkFlow is published by:</p>
+  <ul>
+    <li><strong>Name:</strong> Ivan Knezevic</li>
+    <li><strong>Country:</strong> Switzerland</li>
+    <li><strong>Contact e-mail:</strong> <a href="mailto:i.knezevic@gmx.ch">i.knezevic@gmx.ch</a></li>
+  </ul>
+  <p>For the purposes of GDPR and the Swiss Federal Act on Data Protection (FADP/revDSG), Ivan Knezevic acts as data controller for any personal data this Privacy Policy covers.</p>
+
+  <h2>2. Data the app handles on your device</h2>
+  <p>WorkFlow is designed local-first. The following data categories are created and stored on your device only:</p>
+  <ul>
+    <li><strong>Workplace location:</strong> the latitude/longitude coordinates and geofence radius you configure as your workplace.</li>
+    <li><strong>Location samples:</strong> background location reads used to evaluate whether you have entered or left a workplace geofence.</li>
+    <li><strong>Time entries and work sessions:</strong> check-in/check-out timestamps, durations, breaks, daily aggregates, and any manual corrections.</li>
+    <li><strong>Settings and preferences:</strong> schedule preferences, theme, language, notification settings.</li>
+    <li><strong>Diagnostics:</strong> permission status, background-task status, last fallback check, device manufacturer hint, local error reports.</li>
+    <li><strong>Backups and support bundles:</strong> files the app generates when you explicitly use the backup or support bundle feature.</li>
+  </ul>
+  <p>This data is stored in the app's local database and is <strong>not transmitted to us or any third party by default</strong>.</p>
+
+  <h2>3. Data the app may send off your device</h2>
+  <p>WorkFlow does not transmit your location data or work time entries to our servers. There are no analytics SDKs and no advertising SDKs in the app.</p>
+  <p>The following limited categories of data may leave your device:</p>
+  <ul>
+    <li><strong>Crash diagnostics (Firebase Crashlytics):</strong> if you have not disabled crash reporting and a crash occurs, technical crash information (stack trace, device model, OS version, app version, anonymous app instance ID) is sent to Google Firebase. Crash reports do not include your workplace coordinates, time entries, or any content you have entered.</li>
+    <li><strong>Address search:</strong> when you manually search for a workplace address, the search query and an approximate location may be sent to the address search endpoint configured in the app. Release builds use a paid or self-hosted geocoder by default. If you have manually configured the OpenStreetMap/Nominatim public endpoint in Settings, queries go to that public service under their own terms.</li>
+    <li><strong>User-initiated exports/shares:</strong> when you explicitly choose to export a report (PDF/CSV), share a backup, or share a support bundle, the destination app or service you choose handles that file under its own terms.</li>
+  </ul>
+
+  <h2>4. Permissions and why we ask for them</h2>
+  <ul>
+    <li><strong>Location (foreground and background):</strong> required to detect arriving at or leaving the configured workplace. Background location enables automatic check-in/check-out while the app is closed or not in use.</li>
+    <li><strong>Notifications:</strong> used to confirm check-in and check-out events and to surface tracking-status issues.</li>
+    <li><strong>Battery-optimization exemption (optional):</strong> improves background reliability on Android devices that aggressively kill background tasks.</li>
+    <li><strong>Storage / Share intents:</strong> used only when you export or share files initiated by you.</li>
+  </ul>
+
+  <h2>5. Legal basis for processing (GDPR / FADP)</h2>
+  <p>Processing your location and time data on your device is necessary to provide the core functionality you requested (Art. 6(1)(b) GDPR / Art. 31(2)(a) revDSG: contractual necessity).</p>
+  <p>Processing crash diagnostics is based on our legitimate interest in maintaining a stable application (Art. 6(1)(f) GDPR). You can disable Firebase Crashlytics in Settings at any time.</p>
+
+  <h2>6. Data retention</h2>
+  <ul>
+    <li>Data stored on your device remains until you delete it within the app, clear app storage in Android Settings, or uninstall the app.</li>
+    <li>Crashlytics data is retained by Google per Firebase Crashlytics defaults (typically up to 90 days for crash logs and longer for aggregated insights).</li>
+  </ul>
+
+  <h2>7. Your rights</h2>
+  <p>If any personal data about you is processed by us (e.g., crash diagnostics linked to an app instance), you have the right to:</p>
+  <ul>
+    <li>request access, rectification, or deletion,</li>
+    <li>restrict or object to processing,</li>
+    <li>data portability,</li>
+    <li>lodge a complaint with the supervisory authority responsible for your location:
+      <ul>
+        <li>Switzerland: Federal Data Protection and Information Commissioner (FDPIC), <a href="https://www.edoeb.admin.ch">edoeb.admin.ch</a></li>
+        <li>EU: your local data protection authority.</li>
+      </ul>
+    </li>
+  </ul>
+  <p>To exercise these rights, contact us at the e-mail above. Because we do not link crash diagnostics to identifiers you provide, we may need additional information (e.g., an in-app generated instance ID) to locate any relevant records.</p>
+
+  <h2>8. Account deletion and data deletion</h2>
+  <p>WorkFlow does not require an account.</p>
+  <ul>
+    <li><strong>Delete data on your device:</strong> use the in-app reset / clear-data option in Settings, or uninstall the app via Android Settings &gt; Apps. Uninstalling removes the local database.</li>
+    <li><strong>Delete crash diagnostics:</strong> contact us at the e-mail above and indicate the approximate date range and your device model; we will request Firebase to delete the matching records.</li>
+  </ul>
+
+  <h2>9. Children's privacy</h2>
+  <p>WorkFlow is not directed to children under the age of 13 (or 16 in jurisdictions where that is the applicable threshold). The app does not knowingly collect personal data from children.</p>
+
+  <h2>10. International data transfers</h2>
+  <p>Crash diagnostics processed by Firebase Crashlytics may be stored on servers operated by Google in the United States and other countries. Google relies on EU Standard Contractual Clauses and the EU-U.S. Data Privacy Framework as transfer safeguards.</p>
+
+  <h2>11. Third-party services</h2>
+  <ul>
+    <li><strong>Google Play Services:</strong> required on Android for the Google Geofencing API.</li>
+    <li><strong>Firebase Crashlytics (Google):</strong> crash diagnostics, when enabled in the release build.</li>
+    <li><strong>OpenStreetMap/Nominatim or configured geocoder:</strong> address search, when used.</li>
+  </ul>
+  <p>These providers process data under their own privacy policies.</p>
+
+  <h2>12. Security</h2>
+  <p>The app uses encrypted local storage for sensitive keys (via Android's secure storage). We rely on the security mechanisms provided by the Android operating system for data at rest.</p>
+
+  <h2>13. Changes to this policy</h2>
+  <p>We may update this Privacy Policy. The "Last updated" date at the top reflects the most recent revision. Material changes will be announced in the app release notes.</p>
+
+  <h2>14. Contact</h2>
+  <div class="contact-box">
+    <p style="margin:0;">Privacy questions, data subject requests, and any complaints:</p>
+    <p style="margin:8px 0 0;"><strong>E-mail:</strong> <a href="mailto:i.knezevic@gmx.ch">i.knezevic@gmx.ch</a><br>
+    <strong>Postal:</strong> available on request via e-mail.</p>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Ivan Knezevic &middot; WorkFlow
+</footer>
+
+</body>
+</html>
