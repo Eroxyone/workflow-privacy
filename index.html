@@ -69,6 +69,12 @@
       border-radius: 8px;
       margin: 16px 0;
     }
+    code {
+      background: #F5F7FA;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.92em;
+    }
     footer {
       text-align: center;
       padding: 24px;
@@ -120,13 +126,13 @@
   <p>This data is stored in the app's local database and is <strong>not transmitted to us or any third party by default</strong>.</p>
 
   <h2>3. Data the app may send off your device</h2>
-  <p>WorkFlow does not transmit your location data or work time entries to our servers. There are no analytics SDKs and no advertising SDKs in the app.</p>
+  <p>WorkFlow does not transmit your location data, work time entries, or any personal identifiers to our servers. There are no analytics SDKs and no advertising SDKs active in this release of the app.</p>
   <p>The following limited categories of data may leave your device:</p>
   <ul>
-    <li><strong>Crash diagnostics (Firebase Crashlytics):</strong> if you have not disabled crash reporting and a crash occurs, technical crash information (stack trace, device model, OS version, app version, anonymous app instance ID) is sent to Google Firebase. Crash reports do not include your workplace coordinates, time entries, or any content you have entered.</li>
-    <li><strong>Address search:</strong> when you manually search for a workplace address, the search query and an approximate location may be sent to the address search endpoint configured in the app. Release builds use a paid or self-hosted geocoder by default. If you have manually configured the OpenStreetMap/Nominatim public endpoint in Settings, queries go to that public service under their own terms.</li>
-    <li><strong>User-initiated exports/shares:</strong> when you explicitly choose to export a report (PDF/CSV), share a backup, or share a support bundle, the destination app or service you choose handles that file under its own terms.</li>
+    <li><strong>Address search (OpenStreetMap Nominatim):</strong> when you manually search for a workplace address during setup, the search text you type is sent to OpenStreetMap's public Nominatim service at <code>nominatim.openstreetmap.org</code>. The request includes a User-Agent header identifying the app and a developer contact e-mail (required by the Nominatim usage policy), and an Accept-Language header reflecting your device language. OpenStreetMap may log the request under its own privacy terms (<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation privacy policy</a>). Address search runs only when you actively type a query during workplace setup; it is not used in the background.</li>
+    <li><strong>User-initiated exports and shares:</strong> when you explicitly choose to export a report (PDF/CSV), share a backup, or share a support bundle, the destination app or service you choose handles that file under its own terms.</li>
   </ul>
+  <p>This release of WorkFlow does <strong>not</strong> transmit crash reports, telemetry, or product analytics. Firebase Crashlytics code is present in the codebase but remains inactive in this build because no Firebase configuration is bundled. If a future build enables Crashlytics, this Privacy Policy will be updated before that build is published.</p>
 
   <h2>4. Permissions and why we ask for them</h2>
   <ul>
@@ -138,18 +144,18 @@
 
   <h2>5. Legal basis for processing (GDPR / FADP)</h2>
   <p>Processing your location and time data on your device is necessary to provide the core functionality you requested (Art. 6(1)(b) GDPR / Art. 31(2)(a) revDSG: contractual necessity).</p>
-  <p>Processing crash diagnostics is based on our legitimate interest in maintaining a stable application (Art. 6(1)(f) GDPR). You can disable Firebase Crashlytics in Settings at any time.</p>
+  <p>When you trigger an address search, the search query and language header are sent to OpenStreetMap's Nominatim service on the basis of your direct request to perform that search (Art. 6(1)(b) GDPR).</p>
 
   <h2>6. Data retention</h2>
   <ul>
     <li>Data stored on your device remains until you delete it within the app, clear app storage in Android Settings, or uninstall the app.</li>
-    <li>Crashlytics data is retained by Google per Firebase Crashlytics defaults (typically up to 90 days for crash logs and longer for aggregated insights).</li>
+    <li>Address search queries are sent to OpenStreetMap each time you search; the app does not cache them. OpenStreetMap's retention policy applies to any logs the OpenStreetMap Foundation may keep.</li>
   </ul>
 
   <h2>7. Your rights</h2>
-  <p>If any personal data about you is processed by us (e.g., crash diagnostics linked to an app instance), you have the right to:</p>
+  <p>Under GDPR and the Swiss FADP, you have the right to:</p>
   <ul>
-    <li>request access, rectification, or deletion,</li>
+    <li>request access, rectification, or deletion of any personal data we process,</li>
     <li>restrict or object to processing,</li>
     <li>data portability,</li>
     <li>lodge a complaint with the supervisory authority responsible for your location:
@@ -159,31 +165,30 @@
       </ul>
     </li>
   </ul>
-  <p>To exercise these rights, contact us at the e-mail above. Because we do not link crash diagnostics to identifiers you provide, we may need additional information (e.g., an in-app generated instance ID) to locate any relevant records.</p>
+  <p>Because WorkFlow does not require user accounts, does not collect identifiers, and stores all time and location data locally on your device, we typically do not hold any personal data linked to you that we could access, correct, or erase. If you believe we hold personal data about you (for example because you contacted us at the support e-mail), please contact us at the e-mail above.</p>
 
   <h2>8. Account deletion and data deletion</h2>
   <p>WorkFlow does not require an account.</p>
   <ul>
     <li><strong>Delete data on your device:</strong> use the in-app reset / clear-data option in Settings, or uninstall the app via Android Settings &gt; Apps. Uninstalling removes the local database.</li>
-    <li><strong>Delete crash diagnostics:</strong> contact us at the e-mail above and indicate the approximate date range and your device model; we will request Firebase to delete the matching records.</li>
+    <li><strong>Address search logs:</strong> the app does not store an address search history. Logs that OpenStreetMap may keep on its servers are governed by OpenStreetMap's privacy policy.</li>
   </ul>
 
   <h2>9. Children's privacy</h2>
   <p>WorkFlow is not directed to children under the age of 13 (or 16 in jurisdictions where that is the applicable threshold). The app does not knowingly collect personal data from children.</p>
 
   <h2>10. International data transfers</h2>
-  <p>Crash diagnostics processed by Firebase Crashlytics may be stored on servers operated by Google in the United States and other countries. Google relies on EU Standard Contractual Clauses and the EU-U.S. Data Privacy Framework as transfer safeguards.</p>
+  <p>Address search queries sent to OpenStreetMap's Nominatim service are processed by the OpenStreetMap Foundation's infrastructure, which may be located outside Switzerland or the EU/EEA. See the <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation privacy policy</a> for details.</p>
 
   <h2>11. Third-party services</h2>
   <ul>
-    <li><strong>Google Play Services:</strong> required on Android for the Google Geofencing API.</li>
-    <li><strong>Firebase Crashlytics (Google):</strong> crash diagnostics, when enabled in the release build.</li>
-    <li><strong>OpenStreetMap/Nominatim or configured geocoder:</strong> address search, when used.</li>
+    <li><strong>Google Play Services:</strong> required on Android to provide the Google Geofencing API. Geofence event detection runs on-device; entry/exit events are delivered locally by the operating system.</li>
+    <li><strong>OpenStreetMap Nominatim:</strong> used only for manual address lookup during workplace setup.</li>
   </ul>
-  <p>These providers process data under their own privacy policies.</p>
+  <p>These providers process data under their own privacy policies. WorkFlow does not enable any analytics, advertising, or crash-reporting SDK in this release.</p>
 
   <h2>12. Security</h2>
-  <p>The app uses encrypted local storage for sensitive keys (via Android's secure storage). We rely on the security mechanisms provided by the Android operating system for data at rest.</p>
+  <p>The app uses Android's encrypted secure storage for sensitive configuration values. We rely on the security mechanisms provided by the Android operating system for data at rest on your device.</p>
 
   <h2>13. Changes to this policy</h2>
   <p>We may update this Privacy Policy. The "Last updated" date at the top reflects the most recent revision. Material changes will be announced in the app release notes.</p>
