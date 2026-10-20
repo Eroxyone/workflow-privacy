@@ -52,11 +52,12 @@
       border-bottom: 2px solid var(--brand);
       padding-bottom: 6px;
     }
+    h3 { font-size: 18px; margin-top: 24px; margin-bottom: 8px; }
     h2:first-of-type { margin-top: 0; }
     p, li { font-size: 16px; }
     ul { padding-left: 20px; }
     li { margin-bottom: 8px; }
-    a { color: var(--brand); }
+    a { color: var(--brand); overflow-wrap: anywhere; }
     .meta {
       color: var(--muted);
       font-size: 14px;
@@ -100,9 +101,8 @@
 </header>
 
 <main>
-  <p class="meta"><strong>Last updated:</strong> 25 May 2026</p>
-
-  <p>WorkFlow ("the app") is a local-first time tracking app with workplace geofencing for Android. This Privacy Policy explains what data the app handles, how it is used, your rights, and how to contact us.</p>
+  <p class="meta"><strong>Last updated:</strong> 17 October 2026</p>
+  <p>WorkFlow ("the app") is a local-first time tracking app with workplace geofencing for Android. Its time tracking is free; "WorkFlow Pro" is an optional one-time purchase that adds further features (see section 2). This Privacy Policy explains what data the app handles, how it is used, your rights, and how to contact us.</p>
 
   <h2>1. Who we are</h2>
   <p>WorkFlow is published by:</p>
@@ -113,43 +113,70 @@
   </ul>
   <p>For the purposes of GDPR and the Swiss Federal Act on Data Protection (FADP/revDSG), Ivan Knezevic acts as data controller for any personal data this Privacy Policy covers.</p>
 
+  <h3>Independent application notice</h3>
+  <p>WorkFlow Zeiterfassung is an independent application developed by Ivan Knezevic in Switzerland. It is not affiliated with, endorsed by, or sponsored by Apple Inc., ServiceNow Inc., Microsoft Corporation, Workflow HR Systems GmbH, or any other company that uses the term "workflow" in their product names. The word "workflow" is a generic English term descriptive of process management and is used here in that descriptive sense.</p>
+
   <h2>2. Data the app handles on your device</h2>
   <p>WorkFlow is designed local-first. The following data categories are created and stored on your device only:</p>
   <ul>
     <li><strong>Workplace location:</strong> the latitude/longitude coordinates and geofence radius you configure as your workplace.</li>
     <li><strong>Location samples:</strong> background location reads used to evaluate whether you have entered or left a workplace geofence.</li>
     <li><strong>Time entries and work sessions:</strong> check-in/check-out timestamps, durations, breaks, daily aggregates, and any manual corrections.</li>
-    <li><strong>Settings and preferences:</strong> schedule preferences, theme, language, notification settings.</li>
+    <li><strong>Settings and preferences:</strong> schedule preferences, theme, language, notification settings, and the name and employer you enter for exports.</li>
     <li><strong>Diagnostics:</strong> permission status, background-task status, last fallback check, device manufacturer hint, local error reports.</li>
-    <li><strong>Backups and support bundles:</strong> files the app generates when you explicitly use the backup or support bundle feature.</li>
+    <li><strong>Backups and support bundles:</strong> files the app generates when you explicitly use the backup or support bundle feature, and - with WorkFlow Pro, once you have set them up - the automatic backups and the month-end timesheets described below.</li>
+    <li><strong>Local snapshots:</strong> for every user, free or Pro, the app also saves a snapshot of your data by itself when it starts, at most once every 24 hours, and keeps the newest 30 of them in its private storage (older ones are deleted). Each snapshot is a complete, unencrypted copy in the same format as the manual backup. They stay inside the app, where "Lokalen Snapshot wiederherstellen" / "Restore Local Snapshot" in Settings can restore one, and they are removed with the app. They are kept out of Android's cloud backup (section 3), because they are copies of data that backup already carries in the database.</li>
+    <li><strong>Home-screen widget data:</strong> if you place a WorkFlow widget on your home screen, the app keeps the few values the widget displays in the widget's own storage on your device: whether you are checked in, today's net working time, the start time of the running session, and the widget colour. The WorkFlow Pro month widget additionally holds the running month's per-day status (target reached, worked, special day, nothing recorded), the month's net time, target and balance, and the colour used for special days. The widget is drawn by your home screen app on your device; whatever it shows can be seen by anyone who looks at your home screen.</li>
   </ul>
   <p>This data is stored in the app's local database and is <strong>not transmitted to us or any third party by default</strong>.</p>
+
+  <h3>With WorkFlow Pro</h3>
+  <p>WorkFlow Pro is a one-time in-app purchase (product <code>workflow_pro</code>), with an optional free 14-day trial. It adds the following data handling, all of which runs on your device unless stated otherwise in section 3:</p>
+  <ul>
+    <li><strong>Licence state:</strong> whether this installation has a confirmed WorkFlow Pro purchase (a yes/no value) and, if you started the trial, the date and time the trial ends. Both are kept in Android's encrypted secure storage on your device. They are not part of WorkFlow backups and not part of Android's own device backup, so a reinstall starts without them; a purchase is then recognised again through Google Play (section 3). There is no WorkFlow account.</li>
+    <li><strong>Trial:</strong> the 14-day trial starts only when you tap the trial button, once per installation. It is handled entirely on your device: no payment details are requested, nothing is sent to us or to Google, and it does not turn into a purchase or a subscription on its own.</li>
+    <li><strong>Holiday import:</strong> the public holiday data for Switzerland, Germany and Austria ships inside the app. The holidays for the region you choose are calculated on your device, and nothing is downloaded for this. Your chosen country, region, the holidays you ticked and the dates you excluded are stored on your device and are included in WorkFlow backups. Imported holidays become ordinary special days in your local database.</li>
+    <li><strong>Extended timesheets and exports:</strong> the additional timesheet header fields (company, personnel number, cost centre), the timesheet layout and the colour scheme are stored on your device and included in WorkFlow backups. A logo you pick is copied into the app's private storage, reduced in size, and is not included in backups.</li>
+    <li><strong>Month-end timesheet archive:</strong> if you turn on the automatic month-end export, the app creates the previous month's signable timesheet (PDF, and optionally Excel) when you first open it after a month has ended, and keeps it in an archive inside the app's private storage. If you have not opened the app by the 1st of the month, a local notification reminds you; after a file was created, a notification offers to share it. Files leave the archive only when you share them. The archive is excluded from Android's cloud backup of the app.</li>
+    <li><strong>Automatic backups:</strong> if you set them up, you choose a folder with Android's system folder picker, and the app keeps access to that folder only. From then on, the app writes a backup into that folder by itself, without a separate action from you for each file: at most once per day, when you open the app and your data has changed since the last backup. You can also start one with "Jetzt sichern" / "Back up now". Each backup is a complete, unencrypted copy of your WorkFlow data in the same format as the manual backup: time entries and work sessions, corrections and their history, special days, your workplaces with their coordinates and radius, and the settings and export identity listed above (logo and archived timesheets are not included). The app checks every file it wrote and deletes only its own older automatic backups (it keeps the newest backup of each of the last 7 days, 4 weeks and 12 months that have backups). If you choose a folder that belongs to a cloud storage app (for example Google Drive or Nextcloud), that app may upload the files under its own terms; WorkFlow itself does not upload anything and cannot tell whether an upload happened (see section 3). A background check runs once a day; it only reads the backup status on your device and, if there has been no confirmed backup for 5 days, shows a notification asking you to open the app.</li>
+  </ul>
+  <p>When a trial ends or a purchase is withdrawn, nothing is deleted: imported holidays, generated files and backups stay where they are, and your recorded data stays fully accessible.</p>
 
   <h2>3. Data the app may send off your device</h2>
   <p>WorkFlow does not transmit your location data, work time entries, or any personal identifiers to our servers. There are no analytics SDKs and no advertising SDKs active in this release of the app.</p>
   <p>The following limited categories of data may leave your device:</p>
   <ul>
-    <li><strong>Address search (OpenStreetMap Nominatim):</strong> when you manually search for a workplace address during setup, the search text you type is sent to OpenStreetMap's public Nominatim service at <code>nominatim.openstreetmap.org</code>. The request includes a User-Agent header identifying the app and a developer contact e-mail (required by the Nominatim usage policy), and an Accept-Language header reflecting your device language. OpenStreetMap may log the request under its own privacy terms (<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation privacy policy</a>). Address search runs only when you actively type a query during workplace setup; it is not used in the background.</li>
-    <li><strong>User-initiated exports and shares:</strong> when you explicitly choose to export a report (PDF/CSV), share a backup, or share a support bundle, the destination app or service you choose handles that file under its own terms.</li>
+    <li><strong>Address search (OpenStreetMap Nominatim):</strong> when you manually search for a workplace address during setup, the search text you type is sent to OpenStreetMap's public Nominatim service at <code>nominatim.openstreetmap.org</code>. The request includes a User-Agent header identifying the app and a developer contact e-mail (required by the Nominatim usage policy), and an Accept-Language header reflecting your device language. OpenStreetMap may log the request under its own privacy terms (<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">https://wiki.osmfoundation.org/wiki/Privacy_Policy</a>). Address search runs only when you actively type a query during workplace setup; it is not used in the background.</li>
+    <li><strong>Workplace map (OpenStreetMap tiles):</strong> the map you use to place, check, or edit a workplace loads its map images from OpenStreetMap's public tile servers at <code>tile.openstreetmap.org</code>. Those requests tell the servers which map area is on screen (as tile coordinates) and your device's IP address - and while you are placing a workplace, that area is of course the area around it. The requests carry no exact workplace coordinates, no geofence radius, and no time data: the pin and the radius circle are drawn on your device, on top of the tiles. Tiles are requested only while a workplace map is open in the app, never in the background. The OpenStreetMap Foundation may log the request under its own privacy terms (<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">https://wiki.osmfoundation.org/wiki/Privacy_Policy</a>).</li>
+    <li><strong>Purchase and restore of WorkFlow Pro (Google Play Billing):</strong> the purchase is processed by Google Play. Google handles your Google account, your payment method and the transaction under its own terms (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>); WorkFlow never sees your payment details. To show the price, start a purchase and check whether this installation owns WorkFlow Pro, the app talks to Google Play through Android's billing service: it asks for the localized price of <code>workflow_pro</code>, and after every app start and each time you return to the app it asks Google Play which purchases your Google account holds for WorkFlow. The answer (the product, its purchase state and a purchase token) is used on your device only to unlock Pro and to confirm the purchase to Google Play; the app stores nothing of it except the yes/no licence value described in section 2. <strong>No time entries, locations, workplaces or other app data are sent with these requests</strong>, and the app attaches no identifier of its own. Google Play makes order records of purchases (for example an order number, the product, the price and the country) available to us as the developer in the Google Play Console; we use them only for accounting, tax obligations and handling refunds.</li>
+    <li><strong>Automatic backups into a cloud folder (WorkFlow Pro):</strong> if the folder you chose for automatic backups belongs to a cloud storage app, that app may transfer the backup files - which contain all your WorkFlow data, including workplace coordinates - to its servers under its own terms. This happens only if you choose such a folder; WorkFlow writes the files into the folder and does not contact the cloud service itself.</li>
+    <li><strong>Android's own device backup:</strong> if backup is turned on for your device (Google backup / Google One, or a transfer to a new phone), Android can include WorkFlow's local data: the database with your time entries, sessions, special days and workplaces, and the app's other local files such as its settings and the diagnostics log. Excluded are the values the app keeps in Android's encrypted secure storage (among them the WorkFlow Pro licence state and your work schedule), and, from the cloud backup, the local snapshots (section 2), the timesheet archive and the timesheet logo (on Android 12 and later these three still move with a direct transfer to a new phone). This backup is made and stored by Android and Google, not by WorkFlow, and we have no access to it. You control it in your device's Android settings.</li>
+    <li><strong>User-initiated exports and shares:</strong> when you explicitly choose to export a report (PDF/CSV/Excel), share a backup, share a timesheet from the archive, or share a support bundle, the destination app or service you choose handles that file under its own terms.</li>
+    <li><strong>App rating prompt (Google Play in-app review):</strong> once you have used the app for a while, WorkFlow asks Google Play on its own, without any action by you, whether a rating dialog can be shown, and requests that dialog if so. <strong>No app data is transmitted with this: no locations, no time entries, and no identifiers.</strong> Whether the dialog actually appears is decided by Google Play alone; the app is told neither that nor whether you left a rating. The conditions that lead up to the request are counted locally on your device only, and the automatic prompt is asked for at most once per installation. The "Rate this app" entry in Settings simply opens the WorkFlow page in the Play Store and is likewise free of app data.</li>
   </ul>
   <p>This release of WorkFlow does <strong>not</strong> transmit crash reports, telemetry, or product analytics. Firebase Crashlytics code is present in the codebase but remains inactive in this build because no Firebase configuration is bundled. If a future build enables Crashlytics, this Privacy Policy will be updated before that build is published.</p>
 
   <h2>4. Permissions and why we ask for them</h2>
   <ul>
-    <li><strong>Location (foreground and background):</strong> WorkFlow collects location data to enable automatic check-in and check-out, even when the app is closed or not in use. Location is used only to compare your device with the workplace geofence you configured.</li>
-    <li><strong>Notifications:</strong> used to confirm check-in and check-out events and to surface tracking-status issues.</li>
+    <li><strong>Location (foreground and background):</strong> WorkFlow collects location data to enable automatic check-in and check-out, even when the app is closed or not in use. Location is used only to compare your device with the workplace geofence you configured. Without location permission, the app cannot perform automatic tracking.</li>
+    <li><strong>Notifications:</strong> used to confirm check-in and check-out events, to surface tracking-status issues, and to deliver the optional weekly recap. The recap is generated on your device from the time entries already stored there; it sends no data anywhere and can be turned off in Settings. With WorkFlow Pro, notifications also remind you of and offer to share the month-end timesheet, and ask you to open the app when automatic backups have not been confirmed for 5 days.</li>
+    <li><strong>Google Play billing (<code>com.android.vending.BILLING</code>):</strong> lets the app offer the WorkFlow Pro purchase and check an existing purchase through Google Play (see section 3).</li>
     <li><strong>Battery-optimization exemption (optional):</strong> improves background reliability on Android devices that aggressively kill background tasks.</li>
-    <li><strong>Storage / Share intents:</strong> used only when you export or share files initiated by you.</li>
+    <li><strong>Storage / Share intents:</strong> used only when you export or share files initiated by you. For automatic backups, the app asks for no storage permission: it receives access only to the one folder you pick in Android's folder picker, and you can revoke it by choosing another folder or by removing the app.</li>
   </ul>
 
   <h2>5. Legal basis for processing (GDPR / FADP)</h2>
   <p>Processing your location and time data on your device is necessary to provide the core functionality you requested (Art. 6(1)(b) GDPR / Art. 31(2)(a) revDSG: contractual necessity).</p>
-  <p>When you trigger an address search, the search query and language header are sent to OpenStreetMap's Nominatim service on the basis of your direct request to perform that search (Art. 6(1)(b) GDPR).</p>
+  <p>When you open a workplace map, the map area you are viewing is sent to OpenStreetMap's tile servers; when you trigger an address search, the search query and language header are sent to OpenStreetMap's Nominatim service. Both happen on the basis of your direct request to display that map or to perform that search (Art. 6(1)(b) GDPR).</p>
+  <p>When you buy WorkFlow Pro, the purchase and the ownership checks through Google Play are necessary to perform the purchase contract (Art. 6(1)(b) GDPR). We keep the order records Google Play provides because we are legally obliged to keep accounting and tax records (Art. 6(1)(c) GDPR).</p>
 
   <h2>6. Data retention</h2>
   <ul>
     <li>Data stored on your device remains until you delete it within the app, clear app storage in Android Settings, or uninstall the app.</li>
-    <li>Address search queries are sent to OpenStreetMap each time you search; the app does not cache them. OpenStreetMap's retention policy applies to any logs the OpenStreetMap Foundation may keep.</li>
+    <li>Automatic backups (WorkFlow Pro) are written into a folder you chose outside the app's storage. They are <strong>not</strong> removed when you uninstall the app or end Pro; the app only ever deletes its own older automatic backups while they are switched on. You can delete them in that folder at any time. If the folder belongs to a cloud storage app, that app's retention applies to its copies.</li>
+    <li>Timesheets you shared from the archive and other exported files are outside WorkFlow once shared.</li>
+    <li>Address search queries are sent to OpenStreetMap each time you search, and map tiles are requested each time you open a workplace map; the app does not keep a search or map history. OpenStreetMap's retention policy applies to any logs the OpenStreetMap Foundation may keep.</li>
+    <li>Google Play keeps your purchase history under Google's terms. We keep the order records Google Play provides to us for as long as accounting and tax law requires.</li>
   </ul>
 
   <h2>7. Your rights</h2>
@@ -159,36 +186,39 @@
     <li>restrict or object to processing,</li>
     <li>data portability,</li>
     <li>lodge a complaint with the supervisory authority responsible for your location:
-      <ul>
-        <li>Switzerland: Federal Data Protection and Information Commissioner (FDPIC), <a href="https://www.edoeb.admin.ch">edoeb.admin.ch</a></li>
-        <li>EU: your local data protection authority.</li>
-      </ul>
-    </li>
+    <ul>
+      <li>Switzerland: Federal Data Protection and Information Commissioner (FDPIC), <a href="https://www.edoeb.admin.ch">https://www.edoeb.admin.ch</a></li>
+      <li>EU: your local data protection authority.</li>
+    </ul></li>
   </ul>
-  <p>Because WorkFlow does not require user accounts, does not collect identifiers, and stores all time and location data locally on your device, we typically do not hold any personal data linked to you that we could access, correct, or erase. If you believe we hold personal data about you (for example because you contacted us at the support e-mail), please contact us at the e-mail above.</p>
+  <p>Because WorkFlow does not require user accounts, does not collect identifiers, and stores all time and location data locally on your device, we typically do not hold any personal data linked to you that we could access, correct, or erase. The exceptions are the order records Google Play provides if you bought WorkFlow Pro, and any messages you send to the support e-mail. If you believe we hold personal data about you, please contact us at the e-mail above.</p>
 
   <h2>8. Account deletion and data deletion</h2>
-  <p>WorkFlow does not require an account.</p>
+  <p>WorkFlow does not require an account. Buying WorkFlow Pro does not create one either; the purchase belongs to your Google account.</p>
   <ul>
-    <li><strong>Delete data on your device:</strong> use the in-app reset / clear-data option in Settings, or uninstall the app via Android Settings &gt; Apps. Uninstalling removes the local database.</li>
-    <li><strong>Address search logs:</strong> the app does not store an address search history. Logs that OpenStreetMap may keep on its servers are governed by OpenStreetMap's privacy policy.</li>
+    <li><strong>Delete data on your device:</strong> use the in-app reset / clear-data option in Settings, or uninstall the app via Android Settings &gt; Apps. Uninstalling removes the local database, the local snapshots, the licence state, the timesheet archive and the home-screen widget data.</li>
+    <li><strong>Automatic backups:</strong> delete them in the folder you chose; uninstalling the app does not remove them.</li>
+    <li><strong>Purchases:</strong> your purchase history is kept by Google Play; refunds and purchase records are managed in your Google account and Google Play.</li>
+    <li><strong>Address search and map logs:</strong> the app does not store an address search history or a record of the map areas you viewed. Logs that OpenStreetMap may keep on its servers are governed by OpenStreetMap's privacy policy.</li>
   </ul>
 
   <h2>9. Children's privacy</h2>
   <p>WorkFlow is not directed to children under the age of 13 (or 16 in jurisdictions where that is the applicable threshold). The app does not knowingly collect personal data from children.</p>
 
   <h2>10. International data transfers</h2>
-  <p>Address search queries sent to OpenStreetMap's Nominatim service are processed by the OpenStreetMap Foundation's infrastructure, which may be located outside Switzerland or the EU/EEA. See the <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation privacy policy</a> for details.</p>
+  <p>Address search queries and workplace map tile requests sent to OpenStreetMap are processed by the OpenStreetMap Foundation's infrastructure, which may be located outside Switzerland or the EU/EEA. See <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">https://wiki.osmfoundation.org/wiki/Privacy_Policy</a> for details. Purchases through Google Play are processed by Google, which may process data outside Switzerland or the EU/EEA under its own privacy policy. A cloud storage app you choose for automatic backups may do the same under its own terms.</p>
 
   <h2>11. Third-party services</h2>
   <ul>
-    <li><strong>Google Play Services:</strong> required on Android to provide the Google Geofencing API. Geofence event detection runs on-device; entry/exit events are delivered locally by the operating system.</li>
-    <li><strong>OpenStreetMap Nominatim:</strong> used only for manual address lookup during workplace setup.</li>
+    <li><strong>Google Play Services:</strong> required on Android to provide the Google Geofencing API. Geofence event detection runs on-device; entry/exit events are delivered locally by the operating system. Google Play is also used for the store rating flow: the one-shot in-app review prompt the app requests by itself, and the manual "Rate this app" entry in Settings, which opens the store listing. Neither transmits app data (see section 3).</li>
+    <li><strong>Google Play Billing:</strong> processes the WorkFlow Pro purchase and answers the app's ownership checks (see section 3). It receives no app data from WorkFlow.</li>
+    <li><strong>OpenStreetMap:</strong> used in two places, both only while you are working on a workplace in the app: the Nominatim geocoding service for manual address lookup, and the public tile servers that supply the map images shown on the workplace map (see section 3). Map data and tiles are © OpenStreetMap contributors, licensed under the ODbL, which is why the map credits them on screen.</li>
+    <li><strong>Cloud storage apps you choose (optional, WorkFlow Pro):</strong> if you choose a folder of a cloud storage app for automatic backups, that app processes the backup files under its own terms. WorkFlow has no connection to such a service.</li>
   </ul>
   <p>These providers process data under their own privacy policies. WorkFlow does not enable any analytics, advertising, or crash-reporting SDK in this release.</p>
 
   <h2>12. Security</h2>
-  <p>The app uses Android's encrypted secure storage for sensitive configuration values. We rely on the security mechanisms provided by the Android operating system for data at rest on your device.</p>
+  <p>The app uses Android's encrypted secure storage for sensitive configuration values, including the WorkFlow Pro licence state. We rely on the security mechanisms provided by the Android operating system for data at rest on your device. Backup files, including automatic backups, are not encrypted by the app: store them in a folder you trust.</p>
 
   <h2>13. Changes to this policy</h2>
   <p>We may update this Privacy Policy. The "Last updated" date at the top reflects the most recent revision. Material changes will be announced in the app release notes.</p>
